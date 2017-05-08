@@ -1,0 +1,104 @@
+.custom-card-wide.mdl-card {
+  width: 512px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+#login_card > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('../images/welcome_card.jpg') center / cover;
+}
+
+layer {
+  display: none;
+}
+
+.current {
+  display: block;
+}
+
+#profile_card > .mdl-card__title {
+  background-color: #341596;
+  color: white;
+}
+
+/*User info update*/
+.avatar {
+    width: 120px;
+    height: 120px;
+    padding: 0px;
+    border: 1px solid #039BE5;
+    margin: auto;
+    display: block;
+}
+
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+ul li {
+    font-family: Roboto;
+    font-size: 120%;
+    font-weight: 300;
+    margin-bottom: 10px;
+    line-height: 24px;
+}
+
+/*Chat Room Style*/
+#roomownerfield {
+  padding-top: 0;
+  padding-bottom: 5px;
+}
+
+h4 {
+  margin: 0;
+  font-weight: 800;
+}
+
+#messages {
+  list-style: none;
+  margin: 0px;
+  padding: 10px;
+  height: 320px;
+  overflow-x: hidden;
+}
+
+#messages li {
+    font-family: Roboto;
+    font-size: 120%;
+    font-weight: 300;
+    margin-bottom: 10px;
+    padding-right: 15px;
+    line-height: 24px;
+}
+
+#messageInput {
+  display: block;
+  width: 100%;
+}
+
+.chatroom-avatar {
+    width: 30px;
+    height: 30px;
+    padding: 0px;
+    margin-right: 10px;
+    border: 1px solid #039BE5;
+    border-radius: 50%;
+}
+
+.rightside {
+  text-align: right;
+}
+
+footer div {
+  width: 100%;
+}

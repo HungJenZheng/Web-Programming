@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fire Chat</title>
+
+  <!-- Roboto Font -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+
+  <!-- Firebase JS -->
+  <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+
+  <!-- Material Design Lite -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+
+  <!-- Custom JS/CSS -->
+  <script src="js/script.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <layer class="layer0">
+    <div class="custom-card-wide mdl-card mdl-shadow--2dp" id="login_card">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Welcome</h2>
+      </div>
+      <div class="mdl-card__supporting-text login-field">
+        <p id="sign-info">Please login in...</p>
+        <form action="#" id="signform">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input " type="text" id="email" pattern="">
+            <label class="mdl-textfield__label" for="email">E-mail</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="password" id="password">
+            <label class="mdl-textfield__label" for="password">Password</label>
+          </div>
+        </form>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="btnSignIn">
+          Login
+        </button>
+        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--raised" id="btnSignUp">
+          Sign Up
+        </button>
+      </div>
+    </div><!-- End Login Card -->
+  </layer><!-- End layer 0 -->
+
+  <layer class="layer1">
+    <div class="custom-card-wide mdl-card mdl-shadow--2dp " id="profile_card">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Anonymous</h2>
+        <div class="mdl-card__menu">
+          <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" id="btnSignOut">
+            <i class="material-icons">reply</i>
+          </button>
+        </div>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <div class="mdl-tabs mdl-js-tabs  mdl-js-ripple-effect">
+            <div class="mdl-tabs__tab-bar">
+               <a href="#tab1-panel" class="mdl-tabs__tab is-active">User Info Update</a>
+               <a href="#tab2-panel" class="mdl-tabs__tab">User Info</a>
+               <a href="#tab3-panel" class="mdl-tabs__tab">Chat Room</a>
+            </div>
+            <div class="mdl-tabs__panel is-active" id="tab1-panel">
+              <div class="mdl-card__supporting-text">
+                <!-- User Info Form -->
+                <form action="#">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="userName">
+                    <label class="mdl-textfield__label" for="userName" id="userNameLabel">User Name</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="occupation">
+                    <label class="mdl-textfield__label" for="userName">Occupation</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="age">
+                    <label class="mdl-textfield__label" for="userName">Age</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <!-- <input class="mdl-textfield__input" type="text" id="photoURL">
+                    <label class="mdl-textfield__label" for="photoURL">PhotoURL</label> -->
+                    <h6>Your photo: </h6>
+                    <input type="file"  id="file" name="file"/>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <textarea class="mdl-textfield__input" type="text" style="height: 50px;" id="description"></textarea>
+                    <label class="mdl-textfield__label" for="userName">Description</label>
+                  </div>
+                </form>
+
+                <!-- SignIn/SignUp/Logout Button -->
+                <button class="mdl-button mdl-js-button mdl-button--raised" id="btnSubmit">Submit</button>
+              </div>
+            </div><!-- End tab1-panel -->
+            <div class="mdl-tabs__panel" id="tab2-panel">
+              <div class="mdl-grid">
+                <div class="mdl-card__supporting-text" id="user-pic">
+                  <img src="" class="avatar" id="profile-img">
+                </div>
+                <div class="mdl-card__supporting-text" id="user-info">
+                  <ul id='example-messages' class="example-chat-messages">
+                    <li><strong>Name</strong>: <span id="profile-name">N/A</span></li>
+                    <li><strong>Email</strong>: <span id="profile-email">N/A</span></li>
+                    <li><strong>Occupation</strong>: <span id="profile-occupation">N/A</span></li>
+                    <li><strong>Age</strong>: <span id="profile-age">N/A</span></li>
+                    <li><strong>Description</strong>: <span id="profile-description">N/A</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div><!-- End tab2-panel -->
+            <div class="mdl-tabs__panel" id="tab3-panel">
+              <div class="mdl-textfield mdl-js-textfield" id="roomownerfield">
+                <h4 id="roomowner">Anonymous</h4>
+              </div>
+              <ul id='messages' class="chat-messages"></ul>
+              <footer>
+                <div class="mdl-layout__content mdl-color--grey-100">
+                  <input class="mdl-textfield__input" type="text" id="messageInput" name="email" placeholder="Type a message ..."/>
+                </div>
+              </footer>
+            </div><!-- End tab3-panel -->
+         </div>
+      </div>
+    </div><!-- End Login Card -->
+  </layer>
+</body>
+</html>
