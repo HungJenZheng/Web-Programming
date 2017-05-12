@@ -154,7 +154,7 @@ $(document).ready(function(){
         $('#profile-email').html(snapshot.val().email);
         $('#profile-occupation').html(snapshot.val().occupation);
         $('#profile-age').html(snapshot.val().age);
-        $('#profile-img').attr('src', snapshot.val().photourl);
+        //$('#profile-img').attr('src', snapshot.val().photourl);
         $('#profile-description').html(snapshot.val().description);
         //Chat Room Name update
         $('#roomowner').html(snapshot.val().username || 'Anonymous');
@@ -176,16 +176,18 @@ $(document).ready(function(){
 
   function UpdateChatRoom()
   {
-    dbChatRoom.limitToLast(15).on('child_added', function(snapshot){
+    //dbChatRoom.limitToLast(15).on('child_added', function(snapshot){
+    dbChatRoom.startAt().on('child_added', function(snapshot){
       var data = snapshot.val();
       var message = data.text;
       var uid = data.uid;
       var $messageElement = $("<li>");
-
+      //console.log(message);
       if (uid == firebase.auth().currentUser.uid){
         $messageElement.addClass('rightside');
         $messageElement.text(message);
       } else{
+        //console.log("others");
         var $senderImg = $("<img src='' class='chatroom-avatar'>");
         firebase.database().ref('/user/' + uid).once('value').then(function(snapshot) {
           $senderImg.attr('src', snapshot.val().photourl);
@@ -194,8 +196,20 @@ $(document).ready(function(){
       }
 
       $('#messages').append($messageElement);
-      $('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
+      //$('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
+      //console.log($('#messages')[0].scrollHeight);
+
+      // var photourl;
+      // firebase.storage().ref().child('images/default.jpg').getDownloadURL().then(function(url) {
+      //   console.log(url);
+      //   photourl = url;
+      // });
     });
+
+    $('.mdl-tabs__tab').click(function() {
+      $('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
+    })
+
   }
 
 });
