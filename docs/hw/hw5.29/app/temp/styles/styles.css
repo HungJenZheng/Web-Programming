@@ -674,6 +674,10 @@ body {
         text-align: center;
       }
 
+.mainview__context__play:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
 /*about*/
 
 .about {
@@ -809,7 +813,7 @@ body {
   }
 
 .fireprops__context > a:hover {
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(255, 255, 255, 0.2);
     }
 
 .fireprops__image > img {
